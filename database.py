@@ -11,9 +11,9 @@ engine = create_engine(db_str,
                            }
                        }
                        )
-def load_db():
+def load_db(search):
     with engine.connect() as conn:
-        result = conn.execute(text("select * from telethon"))
+        result = conn.execute(text("select * from telethon where bagz = '%s'" % search))
         columns = [column[0] for column in result.cursor.description]
         ret = []
         for row in result.fetchall():
@@ -21,4 +21,3 @@ def load_db():
     return ret
 
 
-load_db()
