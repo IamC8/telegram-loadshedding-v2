@@ -1,5 +1,9 @@
   <tbody>
-    <tr onclick="window.open('https://t.me/+bbHPhGnKpG5kMTU0')">
+  {% if res['link'] %}
+      <tr onclick="window.open('{{ res['link'] }}')">
+          {% else %}
+            <tr>
+  {% endif %}
         <td>{{ res['bagz'] }}</td>
         <td>{{ res['provider'] }}</td>
         <td>{{ res['muni'] }}</td>
